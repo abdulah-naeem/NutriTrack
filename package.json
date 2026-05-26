@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "node dev-server.js",
-    "build": "node -e \"if(!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) { console.error('\\n\\n❌ ERROR: SUPABASE_URL or SUPABASE_ANON_KEY is missing in Vercel Environment Variables!\\n\\n'); process.exit(1); } const fs=require('fs'); let c=fs.readFileSync('js/config.js','utf8'); c=c.replace('https://YOUR_PROJECT.supabase.co', process.env.SUPABASE_URL).replace('YOUR_ANON_KEY', process.env.SUPABASE_ANON_KEY); fs.writeFileSync('js/config.js',c);\"",
+    "postinstall": "node -e \"if(!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) { console.error('\\n\\n❌ ERROR: SUPABASE_URL or SUPABASE_ANON_KEY is missing in Vercel Environment Variables!\\n\\n'); process.exit(1); } const fs=require('fs'); let c=fs.readFileSync('js/config.js','utf8'); c=c.replace('https://YOUR_PROJECT.supabase.co', process.env.SUPABASE_URL).replace('YOUR_ANON_KEY', process.env.SUPABASE_ANON_KEY); fs.writeFileSync('js/config.js',c);\"",
     "deploy": "vercel --prod"
   },
   "dependencies": {
