@@ -1,0 +1,14 @@
+{
+  "name": "nutritrack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NutriTrack — Free Health & Meal Tracking App",
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.0"
+  }
+}
