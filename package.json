@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "node dev-server.js",
+    "build": "node -e \"const fs=require('fs'); let c=fs.readFileSync('js/config.js','utf8'); c=c.replace('https://YOUR_PROJECT.supabase.co', process.env.SUPABASE_URL).replace('YOUR_ANON_KEY', process.env.SUPABASE_ANON_KEY); fs.writeFileSync('js/config.js',c);\"",
     "deploy": "vercel --prod"
   },
   "dependencies": {
