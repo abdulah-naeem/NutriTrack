@@ -197,7 +197,7 @@ export class DashboardView {
         </div>
 
         <!-- Sleep Tracker -->
-        <div class="glass-card sleep-tracker-card" style="background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.7) 100%); position: relative; overflow: hidden;">
+        <div class="glass-card sleep-tracker-card" style="position: relative; overflow: hidden;">
           <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%); border-radius: 50%;"></div>
           <div class="glass-card-title" style="display: flex; align-items: center; gap: 8px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2v-2h7a2 2 0 0 0 2-2v-14a2 2 0 0 0-2-2H2V4zm11 0h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7v-2h7a2 2 0 0 0 2-2v-14a2 2 0 0 0-2-2h-7V4z"/></svg>
@@ -209,7 +209,7 @@ export class DashboardView {
               <div style="display: flex; flex-direction: column; gap: var(--space-2);">
                 <label for="sleep-hours" style="color: var(--text-secondary); font-size: var(--font-sm); text-transform: uppercase; letter-spacing: 1px;">Hours Slept</label>
                 <div style="display: flex; align-items: baseline; gap: var(--space-2);">
-                  <input type="number" id="sleep-hours" value="${sleepData?.hours || ''}" placeholder="0" step="0.5" min="0" max="24" class="form-input" style="width: 90px; height: 50px; font-size: 28px; font-weight: 700; text-align: center; border-radius: var(--radius-md); border: 2px solid var(--border-medium); background: rgba(0,0,0,0.2); color: var(--text-primary); transition: border-color 0.2s;">
+                  <input type="number" id="sleep-hours" value="${sleepData?.hours || ''}" placeholder="0" step="0.5" min="0" max="24" class="form-input" style="width: 90px; height: 50px; font-size: 28px; font-weight: 700; text-align: center; border-radius: var(--radius-md); border: 2px solid var(--border-medium); transition: border-color 0.2s;">
                   <span style="color: var(--text-secondary); font-size: var(--font-md); font-weight: 500;">hrs</span>
                 </div>
               </div>

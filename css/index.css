@@ -8,6 +8,59 @@
 
 /* ──────── CSS Custom Properties ──────── */
 :root {
+  /* LIGHT THEME (Default) */
+  /* Background */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f1f5f9;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-glass-hover: rgba(255, 255, 255, 0.95);
+  --bg-glass-active: #ffffff;
+
+  /* Borders */
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.15);
+  --border-strong: rgba(0, 0, 0, 0.25);
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-muted: #94a3b8;
+
+  /* Accents */
+  --accent-orange: #f97316;
+  --accent-pink: #ec4899;
+  --accent-indigo: #6366f1;
+  --accent-violet: #8b5cf6;
+  --accent-emerald: #10b981;
+  --accent-cyan: #0ea5e9;
+  --accent-red: #ef4444;
+  --accent-amber: #f59e0b;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #10b981, #059669);
+  --gradient-secondary: linear-gradient(135deg, #0ea5e9, #0284c7);
+  --gradient-success: linear-gradient(135deg, #10b981, #059669);
+  --gradient-danger: linear-gradient(135deg, #ef4444, #dc2626);
+  --gradient-surface: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+
+  /* Macros */
+  --color-protein: #0ea5e9;
+  --color-carbs: #f59e0b;
+  --color-fat: #ec4899;
+  --color-calories: #10b981;
+  --color-water: #0ea5e9;
+
+  /* Ambient Glow */
+  --glow-color-1: rgba(16, 185, 129, 0.15);
+  --glow-color-2: rgba(14, 165, 233, 0.1);
+  --glow-color-3: rgba(245, 158, 11, 0.05);
+}
+
+[data-theme="dark"] {
+  /* DARK THEME (Current) */
   /* Background */
   --bg-primary: #07070d;
   --bg-secondary: #0e0e18;
@@ -28,16 +81,6 @@
   --text-tertiary: #64748b;
   --text-muted: #475569;
 
-  /* Accents */
-  --accent-orange: #f97316;
-  --accent-pink: #ec4899;
-  --accent-indigo: #6366f1;
-  --accent-violet: #8b5cf6;
-  --accent-emerald: #10b981;
-  --accent-cyan: #06b6d4;
-  --accent-red: #ef4444;
-  --accent-amber: #f59e0b;
-
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #f97316, #ec4899);
   --gradient-secondary: linear-gradient(135deg, #6366f1, #8b5cf6);
@@ -51,6 +94,14 @@
   --color-fat: #ec4899;
   --color-calories: #f97316;
   --color-water: #06b6d4;
+
+  /* Ambient Glow */
+  --glow-color-1: rgba(99, 102, 241, 0.06);
+  --glow-color-2: rgba(249, 115, 22, 0.04);
+  --glow-color-3: rgba(236, 72, 153, 0.03);
+}
+
+:root {
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -136,9 +187,9 @@ body::before {
   width: 200%;
   height: 200%;
   background:
-    radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(249, 115, 22, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.03) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 20%, var(--glow-color-1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, var(--glow-color-2) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, var(--glow-color-3) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -653,7 +704,7 @@ input[type="number"] {
   left: 0;
   right: 0;
   height: var(--bottom-nav-height);
-  background: rgba(7, 7, 13, 0.85);
+  background: var(--bg-glass);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
   border-top: 1px solid var(--border-subtle);

@@ -30,6 +30,24 @@ class NutriTrackApp {
     this.streak = 0;
     this.aiSuggestion = null;
     this.demoMode = false;
+    this.theme = localStorage.getItem('nutritrack_theme') || 'light';
+    this.applyTheme();
+  }
+
+  applyTheme() {
+    if (this.theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }
+
+  toggleTheme() {
+    this.theme = this.theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('nutritrack_theme', this.theme);
+    this.applyTheme();
+    this.renderApp(); // Re-render to update the toggle button text
+    this.showToast(`${this.theme === 'dark' ? 'Dark' : 'Light'} theme applied`, 'success');
   }
 
   _emptyFoodLog() {
@@ -264,6 +282,15 @@ class NutriTrackApp {
             </button>
           </div>
           <div class="sidebar-footer">
+            <button class="nav-item theme-toggle" id="theme-toggle" style="margin-bottom: var(--space-4); justify-content: space-between; width: 100%;">
+              <span style="display: flex; align-items: center; gap: var(--space-3);">
+                ${this.theme === 'dark' 
+                  ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>' 
+                  : '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>'}
+                Theme
+              </span>
+              <span style="font-size: var(--font-xs); color: var(--text-tertiary); text-transform: uppercase;">${this.theme === 'dark' ? 'Dark' : 'Light'}</span>
+            </button>
             <div class="sidebar-user" id="sidebar-user">
               <div class="avatar">${userDisplay.initials}</div>
               <div class="user-info">
@@ -323,6 +350,11 @@ class NutriTrackApp {
       btn.addEventListener('click', () => {
         this.navigateTo(btn.dataset.view);
       });
+    });
+
+    // Theme toggle
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      this.toggleTheme();
     });
 
     // Sidebar user click → profile
